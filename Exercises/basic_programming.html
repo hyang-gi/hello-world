@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise 4</title>
+</head>
+
+<body>
+    <div class="btn">
+        <button onclick="display()">View num, sum and cube</button><br>
+        <button onclick="fibonacci()">Fibonacci</button><br>
+        <button onclick="maxNum()">Max of three nos</button><br>
+        <button onclick="fibonacciWithInput()">Fibonacci with input</button><br>
+        <button onclick="verifyName()">Name Verification</button><br>
+        <button onclick="orderText()">Alphabetical Text</button><br>
+        <button onclick="no_zeroes()">No Zeroes</button><br>
+        <button onclick="e_names()">Ending With Name</button><br>
+        <button onclick="first_vowel()">First Vowel</button><br>
+        <button onclick="counter()">Number of contents</button><br>
+        <button onclick="row_averages()">Array averages</button><br>
+        <button onclick="reverser()">Reverse number</button><br>
+    </div>
+</body>
+<script>
+    function display() {
+        var n = "";
+        for (var i = 5; i <= 15; i++) {
+            n += i + "|" + i * i + "|" + i * i * i + "\n";
+
+        }
+        alert(n);
+    }
+    function fibonacci() {
+        document.write("Fibonacci series till 20 is: ");
+        var n1 = 0, n2 = 1, next_num, i;
+        for (i = 0; i <= 20; i++) {
+            document.write(n1 + ",");
+            next_num = n1 + n2;
+            n1 = n2;
+            n2 = next_num;
+        }
+    }
+    function maxNum() {
+        var num1, num2, num3, greatest;
+        num1 = prompt("Enter first number: ");
+        num2 = prompt("Enter second number: ");
+        num3 = prompt("Enter third number: ");
+        greatest = Math.max(num1, num2, num3);
+        document.write("The greatest number among " + num1 + "," + num2 + ", " + num3 + ", is: " + greatest);
+    }
+    function fibonacciWithInput() {
+        var no = prompt("Enter the Fibonacci no");
+        document.write("Fibonacci series till 20 is: ");
+        var n1 = 0, n2 = 1, next_num, i;
+        for (i = 0; i <= no; i++) {
+            document.write(n1 + ",");
+            next_num = n1 + n2;
+            n1 = n2;
+            n2 = next_num;
+        }
+    }
+    function verifyName() {
+        var inputName = prompt("Enter name:");
+        var firstN, middleN, lastN;
+        const name = inputName.split(" ");
+        console.log(name);
+        if (name.length == 3) {
+            firstN = name[0];
+            middleN = name[1];
+            lastN = name[2];
+            if (firstN.length && middleN.length && lastN.length <= 15) {
+                document.write("Legal Name");
+            }
+            else {
+                document.write("Illegal Name.");
+            }
+        }
+        else
+            document.write("Illegal Name.");
+    }
+    function orderText() {
+        var inputText = prompt("Enter text:");
+        var order = prompt("Enter ascending/descending or a/d:");
+        var arr, ordArr, outputText;
+        arr = inputText.split("");
+        // document.write(arr+"\n<br>");
+        if (order == "ascending" || order == "a") {
+            ordArr = arr.sort();
+            // document.write(ordArr+"\n<br>");
+            outputText = ordArr.join("");
+            document.write(outputText + "\n<br>");
+        }
+        else if (order == "descending" || order == "d") {
+            ordArr = arr.reverse();
+            outputText = ordArr.join("");
+            document.write("Descending:" + outputText);
+        }
+        else {
+            document.write("Invalid option entered.");
+        }
+    }
+    function no_zeroes() {
+        var nos = prompt("Enter numbers:").split(" ");
+        var zero = 0;
+        nos = nos.filter(function (item) {
+            return item != zero;
+        });
+        nos.join();
+        document.write(nos);
+    }
+    function e_names() {
+        const names = prompt("Enter names:").split(",");
+        const output = [];
+        for (var i = 0; i < names.length; i++) {
+            if (names[i].endsWith("y") || names[i].endsWith("ie")) {
+                output.push(names[i]);
+            }
+
+        }
+        document.write(output);
+    }
+    function first_vowel() {
+        const input = prompt("Enter string:");
+        const output = input.search(/[a,e,i,o,u,A,E,I,O,U]/g);
+        document.write(output);
+    }
+    function counter() {
+        //   const arr = prompt("Enter numbers").split(",");
+        let arr = [1, 2, 3, -1, 0];
+        console.log(arr.length);
+        const neg = 0, pos = 0, zero = 0;
+        for (var i = 0; i < arr.length; i++) {
+            let val = arr[i];
+            console.log(val);
+            switch (val) {
+                case 0:
+                    zero += 1;
+                    console.log("zero");
+                    break;
+                case (val < 0):
+                    neg += 1;
+                    console.log("neg");
+                    break;
+                case (val > 0):
+                    pos += 1;
+                    console.log("pos");
+                    break;
+                default:
+                    console.log("not working");
+                    break;
+            }
+        }
+        document.write("Negatives: " + neg + "<br>");
+        document.write("Positives: " + pos + "<br>");
+        document.write("Zeroes: " + zero + "<br>");
+    }
+    function row_averages() {
+        const arr = [[1, 2, 3], [4, 5], [6, 7, 8, 9]];
+        const arrAvg = [];
+        let avg = 0; let sum = 0;
+        for (var i = 0; i < arr.length; i++) {
+            for (var j = 0; j < arr[i].length; j++) {
+                sum += arr[i][j];
+                avg = sum / arr[i].length;
+            }
+            sum = 0;
+            arrAvg.push(avg);
+        }
+        console.log(arrAvg);
+        document.write(arrAvg);
+    }
+    function reverser() {
+        const num = prompt("Enter number:");
+        const output = parseInt(num.toString().split("").reverse().join("")) * Math.sign(num);
+        console.log(output);
+    }
+</script>
+<style>
+    button {
+        position: relative;
+        padding: 4px;
+        margin: 2px;
+        top: auto;
+    }
+
+    body {
+        background: linear-gradient(35deg, #CCFFFF, #FFCCCC);
+    }
+</style>
