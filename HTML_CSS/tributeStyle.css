@@ -1,0 +1,47 @@
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #AFC97E;
+    text-align: center;
+  }
+  #title{
+  font-size: 2rem;
+    justify-content: center;
+  }
+  
+  #bullet{
+    max-width: 500px;
+    margin: 0 auto 0 auto;
+    text-align: left;
+    line-height: 1.6;
+  }
+  a{
+    color: #4A5899;
+  }
+  a:visited {
+    color: #92374D;
+  }
+  #main{
+    padding: 12px;
+  }
+  
+  img {
+    max-width: 100%;
+    display: block;
+    height: auto;
+    margin: 0 auto;
+  }
+  
+  #img-div {
+    background: #D4E6B5;
+    padding: 25px;
+    color: #020202;
+  }
+  
+  #img-caption {
+    margin: 15px 0 5px 0;
+  }
+  #details{
+    margin: 0 auto;
+    padding: 15px;
+    max-width: 1040px;
+  }
